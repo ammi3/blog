@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://116.62.25.133:3306/blog?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 99999999
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params:
+
+logging:
+  level:
+    root: info
+    com.ammi3: debug
+  file:
+    name: log/blog.log
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ammi3.blog.domain

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ammi3.blog.dao.BlogDao">
+    <resultMap id="blog" type="Blog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="flag" column="flag"/>
+        <result property="views" column="views"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="typeId" column="type_id"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="shareStatement" column="share_statement"/>
+        <result property="published" column="published"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="commentabled" column="commentabled"/>
+        <result property="description" column="description"/>
+        <result property="recommend" column="recommend"/>
+        <result property="createTime" column="create_time"/>
+        <result property="typeId" column="type_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="tagIds" column="tag_ids"/>
+        <association property="type" javaType="Type">
+            <id property="id" column="typeid"/>
+            <result property="name" column="typename"/>
+        </association>
+        <association property="user" javaType="User">
+            <id property="id" column="uid"/>
+            <result property="nickname" column="nickname"/>
+            <result property="username" column="username"/>
+            <result property="email" column="email"/>
+            <result property="avatar" column="avatar"/>
+        </association>
+        <collection property="tags" ofType="Tag">
+            <id property="id" column="tagid"/>
+            <result property="name" column="tagname"/>
+        </collection>
+    </resultMap>
+
+    <select id="getIndexBlog" resultMap="blog">  /*主页博客展示*/
+        select b.id, b.title, b.first_picture, b.views, b.update_time, b.description,
+        t.name typename, t.id typeid,
+        u.nickname, u.avatar
+        from t_blog b, t_type t, t_user u
+        where b.type_id = t.id and  u.id = b.user_id order by b.update_time desc
+    </select>
+
+    <select id="getAllRecommendBlog" resultMap="blog">
+        select id, title, recommend from t_blog order by update_time desc;
+    </select>
+</mapper>

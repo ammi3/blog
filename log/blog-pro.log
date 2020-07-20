@@ -1,0 +1,6 @@
+2020-07-03 12:27:44.601  INFO 3400 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-5KL4ETP with PID 3400 (D:\代码\blog\target\classes started by 001 in D:\代码\blog)
+2020-07-03 12:27:44.601  INFO 3400 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: pro
+2020-07-03 12:27:45.822  WARN 3400 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-07-03 12:27:46.104  WARN 3400 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-07-03 12:27:46.104  WARN 3400 --- [task-1] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-07-03 12:27:46.213  INFO 3400 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 1.971 seconds (JVM running for 2.73)
