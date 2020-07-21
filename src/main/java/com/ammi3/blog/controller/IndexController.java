@@ -31,9 +31,15 @@ public class IndexController {
     @Autowired
     private TagService tagService;
 
+    /**
+     * 主页
+     * @param pageNum
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(@RequestParam(required = false, defaultValue = "1", value = "pagenum")int pagenum, Model model) {
-        PageHelper.startPage(pagenum, 5);
+    public String index(@RequestParam(required = false, defaultValue = "1", value = "pageNum")int pageNum, Model model) {
+        PageHelper.startPage(pageNum, 5);
         List<Blog> allBlog = blogService.getIndexBlog();
         List<Type> allType = typeService.getBlogType();
         List<Tag> allTag = tagService.getBlogTag();
@@ -45,5 +51,23 @@ public class IndexController {
         model.addAttribute("types", allType);
         model.addAttribute("recommendBlogs", recommendBlog);
         return "index";
+    }
+
+    @RequestMapping(value = "/blog/{id}", method = RequestMethod.GET)
+    public String toLogin(@PathVariable Long id, Model model) {
+        Blog blog = blogService.getDetailBlog(id);
+        model.addAttribute("blog", blog);
+        return "blog";
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String search(@RequestParam(required = false, defaultValue = "1", value = "pagenum")int pagenum,
+                         @RequestParam String query, Model model) {
+        PageHelper.startPage(pagenum, 5);
+        List<Blog> searchBlog = blogService.getSearchBlog(query);
+        PageInfo pageInfo = new PageInfo(searchBlog);
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("query", query);
+        return "search";
     }
 }

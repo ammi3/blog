@@ -1,37 +1,781 @@
-2020-07-20 15:24:18.467  INFO 3080 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 3080 (H:\Demo合集\blog\target\classes started by 75821 in H:\Demo合集\blog)
-2020-07-20 15:24:18.472 DEBUG 3080 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2020-07-20 15:24:18.472  INFO 3080 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
-2020-07-20 15:24:18.503  INFO 3080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-07-20 15:24:18.503  INFO 3080 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-07-20 15:24:19.669  INFO 3080 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-07-20 15:24:19.677  INFO 3080 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-07-20 15:24:19.677  INFO 3080 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
-2020-07-20 15:24:19.744  INFO 3080 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-07-20 15:24:19.744  INFO 3080 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1241 ms
-2020-07-20 15:24:19.789  WARN 3080 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'indexController': Unsatisfied dependency expressed through field 'typeService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'typeServiceImpl': Unsatisfied dependency expressed through field 'typeDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.ammi3.blog.dao.TypeDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-2020-07-20 15:24:19.791  INFO 3080 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2020-07-20 15:24:19.822  INFO 3080 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+2020-07-21 14:04:40.261  INFO 7108 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 7108 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 14:04:40.265 DEBUG 7108 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 14:04:40.265  INFO 7108 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 14:04:40.303  INFO 7108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 14:04:40.303  INFO 7108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 14:04:41.284  INFO 7108 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 14:04:41.291  INFO 7108 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 14:04:41.292  INFO 7108 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 14:04:41.357  INFO 7108 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 14:04:41.357  INFO 7108 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1054 ms
+2020-07-21 14:04:41.721  INFO 7108 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 14:04:41.770  INFO 7108 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 14:04:42.020  INFO 7108 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 14:04:42.050  INFO 7108 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 14:04:42.059  INFO 7108 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.201 seconds (JVM running for 2.96)
+2020-07-21 14:04:59.528  INFO 7108 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 14:04:59.528  INFO 7108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 14:04:59.532  INFO 7108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-21 14:04:59.602  INFO 7108 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 14:05:01.283  INFO 7108 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 14:05:01.288 DEBUG 7108 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 14:05:01.316 DEBUG 7108 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 14:05:01.433 DEBUG 7108 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 14:05:01.436 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 14:05:01.436 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 14:05:01.546 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 14:05:01.548 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 14:05:01.549 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 14:05:01.614 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 14:05:01.614 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 14:05:01.614 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 14:05:01.688 DEBUG 7108 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 14:05:01.689 DEBUG 7108 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 14:05:01.689 DEBUG 7108 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 14:05:01.777 DEBUG 7108 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 14:20:34.964  INFO 12180 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 12180 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 14:20:34.967 DEBUG 12180 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 14:20:34.967  INFO 12180 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 14:20:35.028  INFO 12180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 14:20:35.029  INFO 12180 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 14:20:35.893  INFO 12180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 14:20:35.901  INFO 12180 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 14:20:35.901  INFO 12180 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 14:20:35.974  INFO 12180 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 14:20:35.975  INFO 12180 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 946 ms
+2020-07-21 14:20:36.324  INFO 12180 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 14:20:36.365  INFO 12180 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 14:20:36.552  INFO 12180 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 14:20:36.580  INFO 12180 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 14:20:36.589  INFO 12180 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.032 seconds (JVM running for 2.708)
+2020-07-21 14:20:46.095  INFO 12180 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 14:20:46.095  INFO 12180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 14:20:46.100  INFO 12180 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-21 14:20:46.156  INFO 12180 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 14:20:47.948  INFO 12180 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 14:20:47.956 DEBUG 12180 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 14:20:47.972 DEBUG 12180 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 14:20:48.090 DEBUG 12180 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 14:20:48.093 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 14:20:48.094 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 14:20:48.179 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 14:20:48.181 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 14:20:48.181 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 14:20:48.269 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 14:20:48.270 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 14:20:48.270 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 14:20:48.341 DEBUG 12180 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 14:20:48.341 DEBUG 12180 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 14:20:48.341 DEBUG 12180 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 14:20:48.407 DEBUG 12180 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 14:24:00.308  INFO 4320 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 4320 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 14:24:00.311 DEBUG 4320 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 14:24:00.311  INFO 4320 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 14:24:00.367  INFO 4320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 14:24:00.367  INFO 4320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 14:24:01.297  INFO 4320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 14:24:01.304  INFO 4320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 14:24:01.304  INFO 4320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 14:24:01.362  INFO 4320 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 14:24:01.362  INFO 4320 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 995 ms
+2020-07-21 14:24:01.705  INFO 4320 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 14:24:01.747  INFO 4320 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 14:24:01.936  INFO 4320 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 14:24:01.964  INFO 4320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 14:24:01.973  INFO 4320 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.086 seconds (JVM running for 2.729)
+2020-07-21 14:24:12.857  INFO 4320 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 14:24:12.857  INFO 4320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 14:24:12.861  INFO 4320 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-21 14:24:12.915  INFO 4320 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 14:24:14.606  INFO 4320 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 14:24:14.611 DEBUG 4320 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 14:24:14.627 DEBUG 4320 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 14:24:14.739 DEBUG 4320 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 14:24:14.742 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 14:24:14.743 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 14:24:14.841 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 14:24:14.844 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 14:24:14.844 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 14:24:14.938 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 14:24:14.939 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 14:24:14.940 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 14:24:15.056 DEBUG 4320 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 14:24:15.057 DEBUG 4320 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 14:24:15.057 DEBUG 4320 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 14:24:15.156 DEBUG 4320 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 14:24:20.513 DEBUG 4320 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : ==>  Preparing: select count(0) from (select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id and (b.title like CONCAT('%',?,'%') or b.content likeCONCAT('%',?,'%'))) tmp_count 
+2020-07-21 14:24:20.514 DEBUG 4320 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : ==> Parameters: mybatis(String), mybatis(String)
+2020-07-21 14:24:20.659 ERROR 4320 --- [http-nio-8080-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'likeCONCAT('%','mybatis','%'))) tmp_count' at line 5
+### The error may exist in file [H:\blog\target\classes\mapper\BlogDaoMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(0) from (select b.id, b.title, b.first_picture, b.views, b.update_time, b.description,         t.name typename, t.id typeid,         u.nickname, u.avatar         from t_blog b, t_type t, t_user u         where b.type_id = t.id and  u.id = b.user_id and (b.title like CONCAT('%',?,'%') or b.content likeCONCAT('%',?,'%'))) tmp_count
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'likeCONCAT('%','mybatis','%'))) tmp_count' at line 5
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'likeCONCAT('%','mybatis','%'))) tmp_count' at line 5] with root cause
+
+java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'likeCONCAT('%','mybatis','%'))) tmp_count' at line 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy80.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:324)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.util.ExecutorUtil.executeAutoCount(ExecutorUtil.java:138)
+	at com.github.pagehelper.PageInterceptor.count(PageInterceptor.java:150)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:97)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy78.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy60.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:223)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:93)
+	at com.sun.proxy.$Proxy61.getSearchBlog(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy62.getSearchBlog(Unknown Source)
+	at com.ammi3.blog.service.impl.BlogServiceImpl.getSearchBlog(BlogServiceImpl.java:61)
+	at com.ammi3.blog.controller.IndexController.search(IndexController.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-07-21 14:29:05.793  INFO 15112 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 15112 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 14:29:05.794 DEBUG 15112 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 14:29:05.795  INFO 15112 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 14:29:05.833  INFO 15112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 14:29:05.833  INFO 15112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 14:29:06.880  INFO 15112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 14:29:06.888  INFO 15112 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 14:29:06.888  INFO 15112 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 14:29:06.962  INFO 15112 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 14:29:06.962  INFO 15112 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1129 ms
+2020-07-21 14:29:07.383  INFO 15112 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 14:29:07.435  INFO 15112 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 14:29:07.667  INFO 15112 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 14:29:07.702  INFO 15112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 14:29:07.713  INFO 15112 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.273 seconds (JVM running for 2.884)
+2020-07-21 14:29:13.242  INFO 15112 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 14:29:13.242  INFO 15112 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 14:29:13.250  INFO 15112 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-07-21 14:29:13.331  INFO 15112 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 14:29:15.065  INFO 15112 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 14:29:15.070 DEBUG 15112 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id AND (b.title LIKE ? OR b.content LIKE ?) 
+2020-07-21 14:29:15.086 DEBUG 15112 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : ==> Parameters: %mybatis%(String), %mybatis%(String)
+2020-07-21 14:29:15.195 DEBUG 15112 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : <==      Total: 1
+2020-07-21 14:29:15.199 DEBUG 15112 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getSearchBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id and (b.title like ? or b.content like ?) LIMIT ? 
+2020-07-21 14:29:15.199 DEBUG 15112 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getSearchBlog   : ==> Parameters: %mybatis%(String), %mybatis%(String), 5(Integer)
+2020-07-21 14:29:15.299 DEBUG 15112 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getSearchBlog   : <==      Total: 1
+2020-07-21 14:29:21.923 DEBUG 15112 --- [http-nio-8080-exec-8] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 14:29:21.924 DEBUG 15112 --- [http-nio-8080-exec-8] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 6(Long)
+2020-07-21 14:29:21.998 DEBUG 15112 --- [http-nio-8080-exec-8] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 1
+2020-07-21 14:53:03.074  INFO 6964 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 6964 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 14:53:03.077 DEBUG 6964 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 14:53:03.077  INFO 6964 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 14:53:03.124  INFO 6964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 14:53:03.124  INFO 6964 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 14:53:03.972  INFO 6964 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 14:53:03.979  INFO 6964 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 14:53:03.979  INFO 6964 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 14:53:04.040  INFO 6964 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 14:53:04.040  INFO 6964 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 916 ms
+2020-07-21 14:53:04.391  INFO 6964 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 14:53:04.435  INFO 6964 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 14:53:04.631  INFO 6964 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 14:53:04.659  INFO 6964 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 14:53:04.668  INFO 6964 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.077 seconds (JVM running for 2.761)
+2020-07-21 14:53:12.943  INFO 6964 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 14:53:12.943  INFO 6964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 14:53:12.948  INFO 6964 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-21 14:53:13.003  INFO 6964 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 14:53:14.564  INFO 6964 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 14:53:14.571 DEBUG 6964 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 14:53:14.586 DEBUG 6964 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 14:53:14.677 DEBUG 6964 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 14:53:14.680 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 14:53:14.680 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 14:53:14.748 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 14:53:14.750 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 14:53:14.750 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 14:53:14.845 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 14:53:14.846 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 14:53:14.846 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 14:53:14.909 DEBUG 6964 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 14:53:14.910 DEBUG 6964 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 14:53:14.910 DEBUG 6964 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 14:53:14.966 DEBUG 6964 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 14:53:20.887 DEBUG 6964 --- [http-nio-8080-exec-5] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 14:53:20.888 DEBUG 6964 --- [http-nio-8080-exec-5] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 14:53:20.963 DEBUG 6964 --- [http-nio-8080-exec-5] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 14:53:20.963 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 14:53:20.963 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 14:53:21.047 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 14:53:21.048 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 14:53:21.048 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 14:53:21.106 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 14:53:21.106 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 14:53:21.106 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 14:53:21.155 DEBUG 6964 --- [http-nio-8080-exec-5] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 14:53:21.156 DEBUG 6964 --- [http-nio-8080-exec-5] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 14:53:21.156 DEBUG 6964 --- [http-nio-8080-exec-5] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 14:53:21.236 DEBUG 6964 --- [http-nio-8080-exec-5] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 14:53:27.912 DEBUG 6964 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 14:53:27.912 DEBUG 6964 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 4(Long)
+2020-07-21 14:53:27.987 DEBUG 6964 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 2
+2020-07-21 14:58:33.435  INFO 11976 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 11976 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 14:58:33.437 DEBUG 11976 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 14:58:33.438  INFO 11976 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 14:58:33.510  INFO 11976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 14:58:33.510  INFO 11976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 14:58:34.796  INFO 11976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 14:58:34.805  INFO 11976 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 14:58:34.805  INFO 11976 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 14:58:34.887  INFO 11976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 14:58:34.887  INFO 11976 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1377 ms
+2020-07-21 14:58:35.347  INFO 11976 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 14:58:35.403  INFO 11976 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 14:58:35.675  INFO 11976 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 14:58:35.714  INFO 11976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 14:58:35.727  INFO 11976 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 3.023 seconds (JVM running for 4.174)
+2020-07-21 14:58:40.818  INFO 11976 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 14:58:40.818  INFO 11976 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 14:58:40.822  INFO 11976 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-21 14:58:40.861  INFO 11976 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 14:58:42.494  INFO 11976 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 14:58:42.501 DEBUG 11976 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 14:58:42.519 DEBUG 11976 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 4(Long)
+2020-07-21 14:58:42.613 DEBUG 11976 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 2
+2020-07-21 14:59:54.084  INFO 17232 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 17232 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 14:59:54.088 DEBUG 17232 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 14:59:54.088  INFO 17232 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 14:59:54.155  INFO 17232 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 14:59:54.155  INFO 17232 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 14:59:55.530  INFO 17232 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 14:59:55.539  INFO 17232 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 14:59:55.539  INFO 17232 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 14:59:55.639  INFO 17232 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 14:59:55.640  INFO 17232 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1485 ms
+2020-07-21 14:59:56.101  INFO 17232 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 14:59:56.158  INFO 17232 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 14:59:56.425  INFO 17232 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 14:59:56.465  INFO 17232 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 14:59:56.477  INFO 17232 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 3.086 seconds (JVM running for 4.255)
+2020-07-21 15:00:01.515  INFO 17232 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 15:00:01.515  INFO 17232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 15:00:01.520  INFO 17232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-21 15:00:01.567  INFO 17232 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 15:00:03.204  INFO 17232 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 15:00:03.209 DEBUG 17232 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 15:00:03.231 DEBUG 17232 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 4(Long)
+2020-07-21 15:00:03.368 DEBUG 17232 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 2
+2020-07-21 15:00:04.662 DEBUG 17232 --- [http-nio-8080-exec-7] c.a.b.dao.CommentDao.getCommentByBlog    : ==>  Preparing: select c.id cid, c.nickname, c.email, c.avatar, c.content, c.create_time, c.blog_id, c.parent_comment_id from t_blog b, t_comment c where c.blog_id = b.id and b.id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-07-21 15:00:04.663 DEBUG 17232 --- [http-nio-8080-exec-7] c.a.b.dao.CommentDao.getCommentByBlog    : ==> Parameters: 4(Long), -1(Long)
+2020-07-21 15:00:04.773 DEBUG 17232 --- [http-nio-8080-exec-7] c.a.b.dao.CommentDao.getCommentByBlog    : <==      Total: 3
+2020-07-21 15:00:04.774 DEBUG 17232 --- [http-nio-8080-exec-7] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 15:00:04.775 DEBUG 17232 --- [http-nio-8080-exec-7] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 4(Long)
+2020-07-21 15:00:04.857 DEBUG 17232 --- [http-nio-8080-exec-7] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 2
+2020-07-21 15:00:41.489 DEBUG 17232 --- [http-nio-8080-exec-9] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:00:41.490 DEBUG 17232 --- [http-nio-8080-exec-9] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:00:41.662 DEBUG 17232 --- [http-nio-8080-exec-9] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:00:41.664 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:00:41.664 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:00:41.750 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:00:41.751 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:00:41.751 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:00:41.824 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:00:41.825 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:00:41.825 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:00:41.883 DEBUG 17232 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:00:41.884 DEBUG 17232 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:00:41.884 DEBUG 17232 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:00:41.974 DEBUG 17232 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:01:00.839 DEBUG 17232 --- [http-nio-8080-exec-3] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 15:01:00.840 DEBUG 17232 --- [http-nio-8080-exec-3] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 3(Long)
+2020-07-21 15:01:00.973 DEBUG 17232 --- [http-nio-8080-exec-3] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 4
+2020-07-21 15:01:01.713 DEBUG 17232 --- [http-nio-8080-exec-1] c.a.b.dao.CommentDao.getCommentByBlog    : ==>  Preparing: select c.id cid, c.nickname, c.email, c.avatar, c.content, c.create_time, c.blog_id, c.parent_comment_id from t_blog b, t_comment c where c.blog_id = b.id and b.id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-07-21 15:01:01.714 DEBUG 17232 --- [http-nio-8080-exec-1] c.a.b.dao.CommentDao.getCommentByBlog    : ==> Parameters: 3(Long), -1(Long)
+2020-07-21 15:01:01.835 DEBUG 17232 --- [http-nio-8080-exec-1] c.a.b.dao.CommentDao.getCommentByBlog    : <==      Total: 0
+2020-07-21 15:01:01.836 DEBUG 17232 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 15:01:01.837 DEBUG 17232 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 3(Long)
+2020-07-21 15:01:02.024 DEBUG 17232 --- [http-nio-8080-exec-1] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 4
+2020-07-21 15:08:47.070  INFO 1492 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 1492 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 15:08:47.073 DEBUG 1492 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 15:08:47.073  INFO 1492 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 15:08:47.134  INFO 1492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 15:08:47.135  INFO 1492 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 15:08:48.342  INFO 1492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 15:08:48.350  INFO 1492 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 15:08:48.350  INFO 1492 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 15:08:48.430  INFO 1492 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 15:08:48.430  INFO 1492 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1295 ms
+2020-07-21 15:08:48.856  INFO 1492 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 15:08:48.913  INFO 1492 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 15:08:49.163  INFO 1492 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 15:08:49.199  INFO 1492 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 15:08:49.210  INFO 1492 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.66 seconds (JVM running for 3.515)
+2020-07-21 15:08:53.410  INFO 1492 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 15:08:53.410  INFO 1492 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 15:08:53.417  INFO 1492 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-07-21 15:08:53.478  INFO 1492 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 15:08:55.335  INFO 1492 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 15:08:55.341 DEBUG 1492 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:08:55.359 DEBUG 1492 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:08:55.494 DEBUG 1492 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:08:55.498 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:08:55.499 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:08:55.600 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:08:55.602 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:08:55.602 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:08:55.705 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:08:55.705 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:08:55.705 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:08:55.787 DEBUG 1492 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:08:55.787 DEBUG 1492 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:08:55.788 DEBUG 1492 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:08:55.862 DEBUG 1492 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:09:08.890 DEBUG 1492 --- [http-nio-8080-exec-8] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:09:08.891 DEBUG 1492 --- [http-nio-8080-exec-8] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:09:09.001 DEBUG 1492 --- [http-nio-8080-exec-8] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:09:09.002 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:09:09.002 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:09:09.085 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:09:09.085 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:09:09.085 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:09:09.184 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:09:09.184 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:09:09.185 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:09:09.282 DEBUG 1492 --- [http-nio-8080-exec-8] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:09:09.283 DEBUG 1492 --- [http-nio-8080-exec-8] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:09:09.283 DEBUG 1492 --- [http-nio-8080-exec-8] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:09:09.342 DEBUG 1492 --- [http-nio-8080-exec-8] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:09:16.182 DEBUG 1492 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:09:16.182 DEBUG 1492 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:09:16.301 DEBUG 1492 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:09:16.301 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:09:16.302 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:09:16.402 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:09:16.403 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:09:16.403 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:09:16.501 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:09:16.502 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:09:16.502 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:09:16.602 DEBUG 1492 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:09:16.603 DEBUG 1492 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:09:16.603 DEBUG 1492 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:09:16.682 DEBUG 1492 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:14:43.746  INFO 9540 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 9540 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 15:14:43.751 DEBUG 9540 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 15:14:43.752  INFO 9540 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 15:14:43.830  INFO 9540 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 15:14:43.831  INFO 9540 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 15:14:45.161  INFO 9540 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 15:14:45.170  INFO 9540 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 15:14:45.170  INFO 9540 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 15:14:45.260  INFO 9540 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 15:14:45.260  INFO 9540 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1428 ms
+2020-07-21 15:14:45.836  INFO 9540 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 15:14:45.899  INFO 9540 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 15:14:46.175  INFO 9540 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 15:14:46.216  INFO 9540 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 15:14:46.231  INFO 9540 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 3.349 seconds (JVM running for 4.884)
+2020-07-21 15:14:56.914  INFO 9540 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 15:14:56.914  INFO 9540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 15:14:56.924  INFO 9540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-07-21 15:14:57.004  INFO 9540 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 15:14:59.624  INFO 9540 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 15:14:59.631 DEBUG 9540 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:14:59.655 DEBUG 9540 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:14:59.764 DEBUG 9540 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:14:59.770 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:14:59.771 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:14:59.870 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:14:59.872 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:14:59.872 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:14:59.994 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:14:59.995 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:14:59.995 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:15:00.104 DEBUG 9540 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:15:00.105 DEBUG 9540 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:15:00.106 DEBUG 9540 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:15:00.162 DEBUG 9540 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:15:05.425 DEBUG 9540 --- [http-nio-8080-exec-9] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:15:05.425 DEBUG 9540 --- [http-nio-8080-exec-9] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:15:05.504 DEBUG 9540 --- [http-nio-8080-exec-9] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:15:05.504 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:15:05.505 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:15:05.602 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:15:05.604 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:15:05.604 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:15:05.653 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:15:05.655 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:15:05.655 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:15:05.728 DEBUG 9540 --- [http-nio-8080-exec-9] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:15:05.728 DEBUG 9540 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:15:05.729 DEBUG 9540 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:15:05.787 DEBUG 9540 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:15:18.739 DEBUG 9540 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:15:18.740 DEBUG 9540 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:15:18.800 DEBUG 9540 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:15:18.800 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:15:18.801 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:15:18.854 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:15:18.855 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:15:18.856 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:15:18.902 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:15:18.904 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:15:18.904 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:15:18.962 DEBUG 9540 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:15:18.963 DEBUG 9540 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:15:18.964 DEBUG 9540 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:15:19.061 DEBUG 9540 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:16:45.345  INFO 18380 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 18380 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 15:16:45.353 DEBUG 18380 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 15:16:45.354  INFO 18380 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 15:16:45.433  INFO 18380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 15:16:45.433  INFO 18380 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 15:16:48.477  INFO 18380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 15:16:48.497  INFO 18380 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 15:16:48.498  INFO 18380 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 15:16:48.758  INFO 18380 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 15:16:48.759  INFO 18380 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3325 ms
+2020-07-21 15:16:50.243  INFO 18380 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 15:16:50.384  INFO 18380 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 15:16:50.939  INFO 18380 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 15:16:51.007  INFO 18380 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 15:16:51.026  INFO 18380 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 6.445 seconds (JVM running for 7.691)
+2020-07-21 15:16:58.361  INFO 18380 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 15:16:58.361  INFO 18380 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 15:16:58.372  INFO 18380 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-07-21 15:16:58.456  INFO 18380 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 15:17:00.122  INFO 18380 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 15:17:00.130 DEBUG 18380 --- [http-nio-8080-exec-2] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:17:00.152 DEBUG 18380 --- [http-nio-8080-exec-2] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:17:00.265 DEBUG 18380 --- [http-nio-8080-exec-2] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:17:00.271 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:17:00.271 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:17:00.348 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:17:00.351 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:17:00.351 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:17:00.464 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:17:00.465 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:17:00.466 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:17:00.564 DEBUG 18380 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:17:00.565 DEBUG 18380 --- [http-nio-8080-exec-2] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:17:00.566 DEBUG 18380 --- [http-nio-8080-exec-2] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:17:00.665 DEBUG 18380 --- [http-nio-8080-exec-2] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:17:20.043 DEBUG 18380 --- [http-nio-8080-exec-7] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:17:20.044 DEBUG 18380 --- [http-nio-8080-exec-7] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:17:20.135 DEBUG 18380 --- [http-nio-8080-exec-7] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:17:20.135 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:17:20.135 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:17:20.233 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:17:20.234 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:17:20.234 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:17:20.333 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:17:20.334 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:17:20.334 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:17:20.431 DEBUG 18380 --- [http-nio-8080-exec-7] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:17:20.432 DEBUG 18380 --- [http-nio-8080-exec-7] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:17:20.432 DEBUG 18380 --- [http-nio-8080-exec-7] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:17:20.483 DEBUG 18380 --- [http-nio-8080-exec-7] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:19:12.086  INFO 12184 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 12184 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 15:19:12.090 DEBUG 12184 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 15:19:12.091  INFO 12184 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 15:19:12.162  INFO 12184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 15:19:12.162  INFO 12184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 15:19:13.380  INFO 12184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 15:19:13.390  INFO 12184 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 15:19:13.390  INFO 12184 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 15:19:13.470  INFO 12184 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 15:19:13.470  INFO 12184 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1308 ms
+2020-07-21 15:19:13.919  INFO 12184 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 15:19:13.984  INFO 12184 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 15:19:14.241  INFO 12184 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 15:19:14.284  INFO 12184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 15:19:14.300  INFO 12184 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.928 seconds (JVM running for 4.009)
+2020-07-21 15:19:20.348  INFO 12184 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 15:19:20.348  INFO 12184 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 15:19:20.356  INFO 12184 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-07-21 15:19:20.443  INFO 12184 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 15:19:22.087  INFO 12184 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 15:19:22.093 DEBUG 12184 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:19:22.122 DEBUG 12184 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:19:22.208 DEBUG 12184 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:19:22.212 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:19:22.212 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:19:22.289 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:19:22.292 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:19:22.292 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:19:22.353 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:19:22.355 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:19:22.355 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:19:22.456 DEBUG 12184 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:19:22.456 DEBUG 12184 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:19:22.457 DEBUG 12184 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:19:22.507 DEBUG 12184 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 15:19:25.740 DEBUG 12184 --- [http-nio-8080-exec-6] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 15:19:25.741 DEBUG 12184 --- [http-nio-8080-exec-6] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 15:19:25.791 DEBUG 12184 --- [http-nio-8080-exec-6] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 15:19:25.792 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 15:19:25.792 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 15:19:25.845 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 15:19:25.845 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 15:19:25.845 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 15:19:25.928 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 15:19:25.928 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 15:19:25.929 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 15:19:25.986 DEBUG 12184 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 15:19:25.986 DEBUG 12184 --- [http-nio-8080-exec-6] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 15:19:25.987 DEBUG 12184 --- [http-nio-8080-exec-6] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 15:19:26.054 DEBUG 12184 --- [http-nio-8080-exec-6] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 16:10:59.191  INFO 13092 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 13092 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 16:10:59.193 DEBUG 13092 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 16:10:59.193  INFO 13092 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 16:10:59.229  INFO 13092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 16:10:59.229  INFO 13092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 16:11:00.196  INFO 13092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 16:11:00.205  INFO 13092 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:11:00.205  INFO 13092 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 16:11:00.272  INFO 13092 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:11:00.272  INFO 13092 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1043 ms
+2020-07-21 16:11:00.645  INFO 13092 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:11:00.696  INFO 13092 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 16:11:00.905  INFO 13092 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 16:11:00.935  INFO 13092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 16:11:00.944  INFO 13092 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.177 seconds (JVM running for 2.932)
+2020-07-21 16:11:18.914  INFO 13092 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 16:11:18.914  INFO 13092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 16:11:18.921  INFO 13092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-07-21 16:11:18.987  INFO 13092 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 16:11:20.569  INFO 13092 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 16:11:20.574 DEBUG 13092 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 16:11:20.591 DEBUG 13092 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 16:11:20.679 DEBUG 13092 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 16:11:20.683 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 16:11:20.683 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 16:11:20.770 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 16:11:20.773 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 16:11:20.773 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 16:11:20.870 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 16:11:20.871 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 16:11:20.871 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 16:11:20.970 DEBUG 13092 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 16:11:20.971 DEBUG 13092 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 16:11:20.971 DEBUG 13092 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 16:11:21.029 DEBUG 13092 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 16:11:27.144 DEBUG 13092 --- [http-nio-8080-exec-4] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 16:11:27.144 DEBUG 13092 --- [http-nio-8080-exec-4] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 16:11:27.244 DEBUG 13092 --- [http-nio-8080-exec-4] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 16:11:27.245 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?, ? 
+2020-07-21 16:11:27.245 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer), 5(Integer)
+2020-07-21 16:11:27.338 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 3
+2020-07-21 16:11:27.338 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 16:11:27.338 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 16:11:27.416 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 16:11:27.417 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 16:11:27.417 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 16:11:27.506 DEBUG 13092 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 16:11:27.506 DEBUG 13092 --- [http-nio-8080-exec-4] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 16:11:27.507 DEBUG 13092 --- [http-nio-8080-exec-4] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 16:11:27.576 DEBUG 13092 --- [http-nio-8080-exec-4] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 16:11:34.205 DEBUG 13092 --- [http-nio-8080-exec-6] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 16:11:34.205 DEBUG 13092 --- [http-nio-8080-exec-6] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 16:11:34.294 DEBUG 13092 --- [http-nio-8080-exec-6] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 16:11:34.295 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 16:11:34.295 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 16:11:34.367 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 16:11:34.368 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 16:11:34.368 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 16:11:34.456 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 16:11:34.457 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 16:11:34.458 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 16:11:34.516 DEBUG 13092 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 16:11:34.517 DEBUG 13092 --- [http-nio-8080-exec-6] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 16:11:34.517 DEBUG 13092 --- [http-nio-8080-exec-6] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 16:11:34.606 DEBUG 13092 --- [http-nio-8080-exec-6] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 16:11:43.584 DEBUG 13092 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id AND (b.title LIKE ? OR b.content LIKE ?) 
+2020-07-21 16:11:43.585 DEBUG 13092 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : ==> Parameters: %mybatis%(String), %mybatis%(String)
+2020-07-21 16:11:43.675 DEBUG 13092 --- [http-nio-8080-exec-9] c.a.b.dao.BlogDao.getSearchBlog_COUNT    : <==      Total: 1
+2020-07-21 16:11:43.677 DEBUG 13092 --- [http-nio-8080-exec-9] c.ammi3.blog.dao.BlogDao.getSearchBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id and (b.title like ? or b.content like ?) LIMIT ? 
+2020-07-21 16:11:43.677 DEBUG 13092 --- [http-nio-8080-exec-9] c.ammi3.blog.dao.BlogDao.getSearchBlog   : ==> Parameters: %mybatis%(String), %mybatis%(String), 5(Integer)
+2020-07-21 16:11:43.785 DEBUG 13092 --- [http-nio-8080-exec-9] c.ammi3.blog.dao.BlogDao.getSearchBlog   : <==      Total: 1
+2020-07-21 16:13:46.959  INFO 17152 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 17152 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 16:13:46.961 DEBUG 17152 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 16:13:46.962  INFO 17152 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 16:13:47.018  INFO 17152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 16:13:47.018  INFO 17152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 16:13:48.157  INFO 17152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 16:13:48.165  INFO 17152 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:13:48.166  INFO 17152 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 16:13:48.252  INFO 17152 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:13:48.252  INFO 17152 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1234 ms
+2020-07-21 16:13:48.698  INFO 17152 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:13:48.750  INFO 17152 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 16:13:49.007  INFO 17152 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 16:13:49.044  INFO 17152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 16:13:49.055  INFO 17152 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.809 seconds (JVM running for 4.017)
+2020-07-21 16:13:52.131  INFO 17152 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 16:13:52.131  INFO 17152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 16:13:52.140  INFO 17152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-07-21 16:13:52.209  INFO 17152 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 16:13:54.129  INFO 17152 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 16:13:54.136 DEBUG 17152 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 16:13:54.153 DEBUG 17152 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 16:13:54.280 DEBUG 17152 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 16:13:54.285 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 16:13:54.286 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 16:13:54.383 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 16:13:54.386 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 16:13:54.386 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 16:13:54.472 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 16:13:54.472 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 16:13:54.472 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 16:13:54.569 DEBUG 17152 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 16:13:54.570 DEBUG 17152 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 16:13:54.570 DEBUG 17152 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 16:13:54.690 DEBUG 17152 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 16:14:15.484 DEBUG 17152 --- [http-nio-8080-exec-6] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 16:14:15.484 DEBUG 17152 --- [http-nio-8080-exec-6] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 11(Long)
+2020-07-21 16:14:15.546 DEBUG 17152 --- [http-nio-8080-exec-6] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 1
+2020-07-21 16:14:16.204 DEBUG 17152 --- [http-nio-8080-exec-2] c.a.b.dao.CommentDao.getCommentByBlog    : ==>  Preparing: select c.id cid, c.nickname, c.email, c.avatar, c.content, c.create_time, c.blog_id, c.parent_comment_id from t_blog b, t_comment c where c.blog_id = b.id and b.id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-07-21 16:14:16.204 DEBUG 17152 --- [http-nio-8080-exec-2] c.a.b.dao.CommentDao.getCommentByBlog    : ==> Parameters: 11(Long), -1(Long)
+2020-07-21 16:14:16.299 DEBUG 17152 --- [http-nio-8080-exec-2] c.a.b.dao.CommentDao.getCommentByBlog    : <==      Total: 1
+2020-07-21 16:14:16.301 DEBUG 17152 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 16:14:16.302 DEBUG 17152 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 11(Long)
+2020-07-21 16:14:16.378 DEBUG 17152 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 1
+2020-07-21 16:35:03.616  INFO 10216 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 10216 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 16:35:03.620 DEBUG 10216 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 16:35:03.620  INFO 10216 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 16:35:03.715  INFO 10216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 16:35:03.715  INFO 10216 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 16:35:05.122  INFO 10216 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 16:35:05.132  INFO 10216 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:35:05.133  INFO 10216 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 16:35:05.231  INFO 10216 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:35:05.232  INFO 10216 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1516 ms
+2020-07-21 16:35:05.602  WARN 10216 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'comment.avatar' in value "${comment.avatar}"
+2020-07-21 16:35:05.605  INFO 10216 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-07-21 16:35:05.618  INFO 10216 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
 
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-07-20 15:24:19.928 ERROR 3080 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2020-07-21 16:35:05.638 ERROR 10216 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-***************************
-APPLICATION FAILED TO START
-***************************
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentController': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'comment.avatar' in value "${comment.avatar}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:405)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1422)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.ammi3.blog.BlogApplication.main(BlogApplication.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'comment.avatar' in value "${comment.avatar}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:236)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:912)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1247)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1226)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	... 23 common frames omitted
 
-Description:
-
-Field typeDao in com.ammi3.blog.service.impl.TypeServiceImpl required a bean of type 'com.ammi3.blog.dao.TypeDao' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'com.ammi3.blog.dao.TypeDao' in your configuration.
-
-2020-07-20 15:24:19.933  WARN 3080 --- [restartedMain] o.s.boot.SpringApplication               : Unable to close ApplicationContext
+2020-07-21 16:35:05.641  WARN 10216 --- [restartedMain] o.s.boot.SpringApplication               : Unable to close ApplicationContext
 
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:512)
@@ -52,7 +796,7 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at com.ammi3.blog.BlogApplication.main(BlogApplication.java:10)
+	at com.ammi3.blog.BlogApplication.main(BlogApplication.java:15)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -94,167 +838,27 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No b
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
 	... 45 common frames omitted
 
-2020-07-20 15:34:51.797  INFO 14568 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 14568 (H:\Demo合集\blog\target\classes started by 75821 in H:\Demo合集\blog)
-2020-07-20 15:34:51.801 DEBUG 14568 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2020-07-20 15:34:51.802  INFO 14568 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
-2020-07-20 15:34:51.865  INFO 14568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-07-20 15:34:51.865  INFO 14568 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-07-20 15:34:52.729  INFO 14568 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-07-20 15:34:52.736  INFO 14568 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-07-20 15:34:52.736  INFO 14568 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
-2020-07-20 15:34:52.810  INFO 14568 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-07-20 15:34:52.810  INFO 14568 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 944 ms
-2020-07-20 15:34:53.070  WARN 14568 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'typeServiceImpl': Unsatisfied dependency expressed through field 'typeDao'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.ammi3.blog.dao.TypeDao' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
-2020-07-20 15:34:53.072  INFO 14568 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2020-07-20 15:34:53.080  INFO 14568 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+2020-07-21 16:40:50.298  INFO 5408 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 5408 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 16:40:50.300 DEBUG 5408 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 16:40:50.300  INFO 5408 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 16:40:50.349  INFO 5408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 16:40:50.349  INFO 5408 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 16:40:51.173  INFO 5408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 16:40:51.178  INFO 5408 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:40:51.179  INFO 5408 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 16:40:51.242  INFO 5408 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:40:51.242  INFO 5408 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 893 ms
+2020-07-21 16:40:51.580  INFO 5408 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:40:51.625  INFO 5408 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 16:40:51.817  INFO 5408 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 16:40:51.846  INFO 5408 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 16:40:51.855  INFO 5408 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 1.921 seconds (JVM running for 2.545)
+2020-07-21 16:41:04.356  INFO 5408 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 16:41:04.357  INFO 5408 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 16:41:04.362  INFO 5408 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-21 16:41:04.397 ERROR 5408 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.ammi3.blog.dao.CommentDao.Comment' referenced from 'com.ammi3.blog.dao.CommentDao.findByParentCommentId'] with root cause
 
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2020-07-20 15:34:53.158 ERROR 14568 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field typeDao in com.ammi3.blog.service.impl.TypeServiceImpl required a bean of type 'com.ammi3.blog.dao.TypeDao' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
-
-
-Action:
-
-Consider defining a bean of type 'com.ammi3.blog.dao.TypeDao' in your configuration.
-
-2020-07-20 15:34:53.162  WARN 14568 --- [restartedMain] o.s.boot.SpringApplication               : Unable to close ApplicationContext
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springApplicationAdminRegistrar' defined in class path resource [org/springframework/boot/autoconfigure/admin/SpringApplicationAdminJmxAutoConfiguration.class]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:512)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-	at org.springframework.context.event.AbstractApplicationEventMulticaster.retrieveApplicationListeners(AbstractApplicationEventMulticaster.java:245)
-	at org.springframework.context.event.AbstractApplicationEventMulticaster.getApplicationListeners(AbstractApplicationEventMulticaster.java:197)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:134)
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:403)
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:360)
-	at org.springframework.boot.availability.AvailabilityChangeEvent.publish(AvailabilityChangeEvent.java:81)
-	at org.springframework.boot.availability.AvailabilityChangeEvent.publish(AvailabilityChangeEvent.java:67)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:167)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:978)
-	at org.springframework.boot.SpringApplication.handleRunFailure(SpringApplication.java:814)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:325)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
-	at com.ammi3.blog.BlogApplication.main(BlogApplication.java:13)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration': Initialization of bean failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:409)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1338)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:557)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-	at org.springframework.aop.framework.autoproxy.BeanFactoryAdvisorRetrievalHelper.findAdvisorBeans(BeanFactoryAdvisorRetrievalHelper.java:91)
-	at org.springframework.aop.framework.autoproxy.AbstractAdvisorAutoProxyCreator.findCandidateAdvisors(AbstractAdvisorAutoProxyCreator.java:109)
-	at org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator.findCandidateAdvisors(AnnotationAwareAspectJAutoProxyCreator.java:92)
-	at org.springframework.aop.aspectj.autoproxy.AspectJAwareAdvisorAutoProxyCreator.shouldSkip(AspectJAwareAdvisorAutoProxyCreator.java:101)
-	at org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator.postProcessBeforeInstantiation(AbstractAutoProxyCreator.java:251)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1141)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeforeInstantiation(AbstractAutowireCapableBeanFactory.java:1114)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:506)
-	... 23 common frames omitted
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importRegistry' available
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:814)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1282)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:297)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-	at org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor.postProcessBeforeInitialization(ConfigurationClassPostProcessor.java:456)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:416)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
-	... 45 common frames omitted
-
-2020-07-20 15:36:04.332  INFO 9040 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 9040 (H:\Demo合集\blog\target\classes started by 75821 in H:\Demo合集\blog)
-2020-07-20 15:36:04.334 DEBUG 9040 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2020-07-20 15:36:04.334  INFO 9040 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
-2020-07-20 15:36:04.388  INFO 9040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-07-20 15:36:04.388  INFO 9040 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-07-20 15:36:05.244  INFO 9040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-07-20 15:36:05.250  INFO 9040 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-07-20 15:36:05.251  INFO 9040 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
-2020-07-20 15:36:05.312  INFO 9040 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-07-20 15:36:05.312  INFO 9040 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 923 ms
-2020-07-20 15:36:05.632  INFO 9040 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-07-20 15:36:05.680  INFO 9040 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-07-20 15:36:05.992  INFO 9040 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-07-20 15:36:06.027  INFO 9040 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-07-20 15:36:06.037  INFO 9040 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.071 seconds (JVM running for 2.705)
-2020-07-20 15:36:43.983  INFO 9040 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-07-20 15:36:43.984  INFO 9040 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-07-20 15:36:43.990  INFO 9040 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-07-20 15:36:44.058  INFO 9040 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-07-20 15:36:45.770  INFO 9040 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-07-20 15:36:45.777 DEBUG 9040 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
-2020-07-20 15:36:45.805 DEBUG 9040 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
-2020-07-20 15:36:45.913 DEBUG 9040 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
-2020-07-20 15:36:45.917 DEBUG 9040 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
-2020-07-20 15:36:45.918 DEBUG 9040 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
-2020-07-20 15:36:46.007 DEBUG 9040 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
-2020-07-20 15:36:46.010 DEBUG 9040 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
-2020-07-20 15:36:46.011 DEBUG 9040 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
-2020-07-20 15:36:46.091 DEBUG 9040 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
-2020-07-20 15:36:46.092 DEBUG 9040 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
-2020-07-20 15:36:46.092 DEBUG 9040 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
-2020-07-20 15:36:46.165 DEBUG 9040 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
-2020-07-20 15:39:24.528 DEBUG 9040 --- [http-nio-8080-exec-2] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
-2020-07-20 15:39:24.529 DEBUG 9040 --- [http-nio-8080-exec-2] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
-2020-07-20 15:39:24.618 DEBUG 9040 --- [http-nio-8080-exec-2] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
-2020-07-20 15:39:24.618 DEBUG 9040 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
-2020-07-20 15:39:24.619 DEBUG 9040 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
-2020-07-20 15:39:24.690 DEBUG 9040 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
-2020-07-20 15:39:24.691 DEBUG 9040 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
-2020-07-20 15:39:24.691 DEBUG 9040 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
-2020-07-20 15:39:24.791 DEBUG 9040 --- [http-nio-8080-exec-2] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
-2020-07-20 15:39:24.791 DEBUG 9040 --- [http-nio-8080-exec-2] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
-2020-07-20 15:39:24.792 DEBUG 9040 --- [http-nio-8080-exec-2] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
-2020-07-20 15:39:24.891 DEBUG 9040 --- [http-nio-8080-exec-2] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
-2020-07-20 15:49:13.000  INFO 16200 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 16200 (H:\Demo合集\blog\target\classes started by 75821 in H:\Demo合集\blog)
-2020-07-20 15:49:13.006 DEBUG 16200 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2020-07-20 15:49:13.006  INFO 16200 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
-2020-07-20 15:49:13.078  INFO 16200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-07-20 15:49:13.078  INFO 16200 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-07-20 15:49:14.434  INFO 16200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-07-20 15:49:14.446  INFO 16200 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-07-20 15:49:14.446  INFO 16200 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
-2020-07-20 15:49:14.543  INFO 16200 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-07-20 15:49:14.543  INFO 16200 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1465 ms
-2020-07-20 15:49:15.012  INFO 16200 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-07-20 15:49:15.072  INFO 16200 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-07-20 15:49:15.345  INFO 16200 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-07-20 15:49:15.385  INFO 16200 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-07-20 15:49:15.398  INFO 16200 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 3.128 seconds (JVM running for 4.325)
-2020-07-20 15:49:19.750  INFO 16200 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-07-20 15:49:19.750  INFO 16200 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-07-20 15:49:19.757  INFO 16200 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2020-07-20 15:49:19.795 ERROR 16200 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.ammi3.blog.dao.TagDao.tag' referenced from 'com.ammi3.blog.dao.TagDao.getBlogTag'] with root cause
-
-java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.ammi3.blog.dao.TagDao.tag
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.ammi3.blog.dao.CommentDao.Comment
 	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964)
 	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674)
 	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339)
@@ -272,7 +876,7 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
 	at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:97)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:92)
-	at com.sun.proxy.$Proxy61.getIndexBlog(Unknown Source)
+	at com.sun.proxy.$Proxy61.getDetailBlog(Unknown Source)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -283,9 +887,9 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
-	at com.sun.proxy.$Proxy62.getIndexBlog(Unknown Source)
-	at com.ammi3.blog.service.impl.BlogServiceImpl.getIndexBlog(BlogServiceImpl.java:23)
-	at com.ammi3.blog.controller.IndexController.index(IndexController.java:37)
+	at com.sun.proxy.$Proxy62.getDetailBlog(Unknown Source)
+	at com.ammi3.blog.service.impl.BlogServiceImpl.getDetailBlog(BlogServiceImpl.java:44)
+	at com.ammi3.blog.controller.IndexController.toLogin(IndexController.java:58)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -337,73 +941,159 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
 
-2020-07-20 15:50:01.481  INFO 14388 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 14388 (H:\Demo合集\blog\target\classes started by 75821 in H:\Demo合集\blog)
-2020-07-20 15:50:01.485 DEBUG 14388 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2020-07-20 15:50:01.486  INFO 14388 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
-2020-07-20 15:50:01.560  INFO 14388 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-07-20 15:50:01.561  INFO 14388 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-07-20 15:50:02.847  INFO 14388 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-07-20 15:50:02.855  INFO 14388 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-07-20 15:50:02.856  INFO 14388 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
-2020-07-20 15:50:02.937  INFO 14388 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-07-20 15:50:02.937  INFO 14388 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1376 ms
-2020-07-20 15:50:03.386  INFO 14388 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-07-20 15:50:03.443  INFO 14388 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-07-20 15:50:03.712  INFO 14388 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-07-20 15:50:03.754  INFO 14388 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-07-20 15:50:03.766  INFO 14388 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 3.051 seconds (JVM running for 4.193)
-2020-07-20 15:50:20.914  INFO 14388 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-07-20 15:50:20.914  INFO 14388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-07-20 15:50:20.920  INFO 14388 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2020-07-20 15:50:20.978  INFO 14388 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-07-20 15:50:22.677  INFO 14388 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-07-20 15:50:22.682 DEBUG 14388 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
-2020-07-20 15:50:22.701 DEBUG 14388 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
-2020-07-20 15:50:22.810 DEBUG 14388 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
-2020-07-20 15:50:22.814 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
-2020-07-20 15:50:22.814 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
-2020-07-20 15:50:22.913 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
-2020-07-20 15:50:22.916 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
-2020-07-20 15:50:22.917 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
-2020-07-20 15:50:22.980 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
-2020-07-20 15:50:22.981 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
-2020-07-20 15:50:22.981 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
-2020-07-20 15:50:23.058 DEBUG 14388 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
-2020-07-20 15:50:23.059 DEBUG 14388 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
-2020-07-20 15:50:23.059 DEBUG 14388 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
-2020-07-20 15:50:23.126 DEBUG 14388 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
-2020-07-20 15:51:01.674  INFO 10448 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 10448 (H:\Demo合集\blog\target\classes started by 75821 in H:\Demo合集\blog)
-2020-07-20 15:51:01.679 DEBUG 10448 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2020-07-20 15:51:01.680  INFO 10448 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
-2020-07-20 15:51:01.797  INFO 10448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-07-20 15:51:01.797  INFO 10448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-07-20 15:51:03.255  INFO 10448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2020-07-20 15:51:03.265  INFO 10448 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2020-07-20 15:51:03.266  INFO 10448 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
-2020-07-20 15:51:03.362  INFO 10448 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2020-07-20 15:51:03.362  INFO 10448 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1564 ms
-2020-07-20 15:51:03.807  INFO 10448 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-07-20 15:51:03.865  INFO 10448 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2020-07-20 15:51:04.182  INFO 10448 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2020-07-20 15:51:04.230  INFO 10448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2020-07-20 15:51:04.244  INFO 10448 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 3.537 seconds (JVM running for 5.076)
-2020-07-20 15:51:12.728  INFO 10448 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-07-20 15:51:12.728  INFO 10448 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2020-07-20 15:51:12.733  INFO 10448 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
-2020-07-20 15:51:12.790  INFO 10448 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2020-07-20 15:51:14.496  INFO 10448 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2020-07-20 15:51:14.503 DEBUG 10448 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
-2020-07-20 15:51:14.519 DEBUG 10448 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
-2020-07-20 15:51:14.632 DEBUG 10448 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
-2020-07-20 15:51:14.637 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
-2020-07-20 15:51:14.638 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
-2020-07-20 15:51:14.709 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
-2020-07-20 15:51:14.712 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
-2020-07-20 15:51:14.712 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
-2020-07-20 15:51:14.806 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
-2020-07-20 15:51:14.807 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
-2020-07-20 15:51:14.808 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
-2020-07-20 15:51:14.859 DEBUG 10448 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
-2020-07-20 15:51:14.860 DEBUG 10448 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
-2020-07-20 15:51:14.860 DEBUG 10448 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
-2020-07-20 15:51:14.928 DEBUG 10448 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 16:41:07.340 ERROR 5408 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.apache.ibatis.builder.IncompleteElementException: Could not find result map 'com.ammi3.blog.dao.CommentDao.Comment' referenced from 'com.ammi3.blog.dao.CommentDao.findByParentCommentId'] with root cause
+
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.ammi3.blog.dao.CommentDao.Comment
+	at org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:964)
+	at org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:674)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:339)
+	at org.apache.ibatis.builder.MapperBuilderAssistant.addMappedStatement(MapperBuilderAssistant.java:285)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:113)
+	at org.apache.ibatis.session.Configuration.lambda$buildAllStatements$2(Configuration.java:816)
+	at java.util.Collection.removeIf(Collection.java:414)
+	at org.apache.ibatis.session.Configuration.buildAllStatements(Configuration.java:815)
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:792)
+	at org.apache.ibatis.session.Configuration.hasStatement(Configuration.java:787)
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.resolveMappedStatement(MapperMethod.java:257)
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227)
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:53)
+	at org.apache.ibatis.binding.MapperProxy.lambda$cachedMapperMethod$0(MapperProxy.java:98)
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660)
+	at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:97)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:92)
+	at com.sun.proxy.$Proxy61.getIndexBlog(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy62.getIndexBlog(Unknown Source)
+	at com.ammi3.blog.service.impl.BlogServiceImpl.getIndexBlog(BlogServiceImpl.java:25)
+	at com.ammi3.blog.controller.IndexController.index(IndexController.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-07-21 16:41:42.741  INFO 13228 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 13228 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-21 16:41:42.744 DEBUG 13228 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-21 16:41:42.744  INFO 13228 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-21 16:41:42.819  INFO 13228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-21 16:41:42.820  INFO 13228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-21 16:41:44.032  INFO 13228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-21 16:41:44.041  INFO 13228 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-21 16:41:44.041  INFO 13228 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-21 16:41:44.139  INFO 13228 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-21 16:41:44.139  INFO 13228 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1319 ms
+2020-07-21 16:41:44.578  INFO 13228 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-21 16:41:44.634  INFO 13228 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-21 16:41:44.895  INFO 13228 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-21 16:41:44.931  INFO 13228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-21 16:41:44.943  INFO 13228 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.948 seconds (JVM running for 4.124)
+2020-07-21 16:41:56.572  INFO 13228 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-21 16:41:56.572  INFO 13228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-21 16:41:56.576  INFO 13228 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2020-07-21 16:41:56.629  INFO 13228 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-21 16:41:58.301  INFO 13228 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-21 16:41:58.308 DEBUG 13228 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 16:41:58.323 DEBUG 13228 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 16:41:58.425 DEBUG 13228 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 16:41:58.427 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-21 16:41:58.428 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer)
+2020-07-21 16:41:58.490 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 5
+2020-07-21 16:41:58.492 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 16:41:58.492 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 16:41:58.558 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 16:41:58.559 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 16:41:58.559 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 16:41:58.626 DEBUG 13228 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 16:41:58.627 DEBUG 13228 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 16:41:58.627 DEBUG 13228 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 16:41:58.704 DEBUG 13228 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8
+2020-07-21 16:42:08.561 DEBUG 13228 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 16:42:08.562 DEBUG 13228 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 11(Long)
+2020-07-21 16:42:08.614 DEBUG 13228 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 1
+2020-07-21 16:42:09.322 DEBUG 13228 --- [http-nio-8080-exec-10] c.a.b.dao.CommentDao.getCommentByBlog    : ==>  Preparing: select c.id cid, c.nickname, c.email, c.avatar, c.content, c.create_time, c.blog_id, c.parent_comment_id from t_blog b, t_comment c where c.blog_id = b.id and b.id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-07-21 16:42:09.323 DEBUG 13228 --- [http-nio-8080-exec-10] c.a.b.dao.CommentDao.getCommentByBlog    : ==> Parameters: 11(Long), -1(Long)
+2020-07-21 16:42:09.411 DEBUG 13228 --- [http-nio-8080-exec-10] c.a.b.dao.CommentDao.getCommentByBlog    : <==      Total: 2
+2020-07-21 16:42:09.412 DEBUG 13228 --- [http-nio-8080-exec-10] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 16:42:09.412 DEBUG 13228 --- [http-nio-8080-exec-10] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 11(Long)
+2020-07-21 16:42:09.479 DEBUG 13228 --- [http-nio-8080-exec-10] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 1
+2020-07-21 16:42:26.967 DEBUG 13228 --- [http-nio-8080-exec-4] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 16:42:26.967 DEBUG 13228 --- [http-nio-8080-exec-4] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 11(Long)
+2020-07-21 16:42:27.042 DEBUG 13228 --- [http-nio-8080-exec-4] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 1
+2020-07-21 16:42:27.044 DEBUG 13228 --- [http-nio-8080-exec-4] c.ammi3.blog.dao.CommentDao.saveComment  : ==>  Preparing: insert into t_comment ( nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admincomment ) values ( ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-07-21 16:42:27.045 DEBUG 13228 --- [http-nio-8080-exec-4] c.ammi3.blog.dao.CommentDao.saveComment  : ==> Parameters: SuperFar(String), 7582176732@qq.com(String), 呜呜呜(String), /images/avatar.jpg(String), 2020-07-21 16:42:27.044(Timestamp), 11(Long), -1(Long), false(Boolean)
+2020-07-21 16:42:27.250 DEBUG 13228 --- [http-nio-8080-exec-4] c.ammi3.blog.dao.CommentDao.saveComment  : <==    Updates: 1
+2020-07-21 16:42:27.260 DEBUG 13228 --- [http-nio-8080-exec-5] c.a.b.dao.CommentDao.getCommentByBlog    : ==>  Preparing: select c.id cid, c.nickname, c.email, c.avatar, c.content, c.create_time, c.blog_id, c.parent_comment_id from t_blog b, t_comment c where c.blog_id = b.id and b.id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-07-21 16:42:27.260 DEBUG 13228 --- [http-nio-8080-exec-5] c.a.b.dao.CommentDao.getCommentByBlog    : ==> Parameters: 11(Long), -1(Long)
+2020-07-21 16:42:27.353 DEBUG 13228 --- [http-nio-8080-exec-5] c.a.b.dao.CommentDao.getCommentByBlog    : <==      Total: 3
+2020-07-21 16:42:27.354 DEBUG 13228 --- [http-nio-8080-exec-5] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-21 16:42:27.354 DEBUG 13228 --- [http-nio-8080-exec-5] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 11(Long)
+2020-07-21 16:42:27.423 DEBUG 13228 --- [http-nio-8080-exec-5] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 1
+2020-07-21 16:45:32.767 DEBUG 13228 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-21 16:45:32.767 DEBUG 13228 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-21 16:45:32.850 DEBUG 13228 --- [http-nio-8080-exec-3] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-21 16:45:32.851 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ?, ? 
+2020-07-21 16:45:32.851 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 5(Integer), 5(Integer)
+2020-07-21 16:45:32.943 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 3
+2020-07-21 16:45:32.944 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-21 16:45:32.944 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-21 16:45:33.033 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-21 16:45:33.034 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-21 16:45:33.035 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-21 16:45:33.083 DEBUG 13228 --- [http-nio-8080-exec-3] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-21 16:45:33.084 DEBUG 13228 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc; 
+2020-07-21 16:45:33.084 DEBUG 13228 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-21 16:45:33.191 DEBUG 13228 --- [http-nio-8080-exec-3] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 8

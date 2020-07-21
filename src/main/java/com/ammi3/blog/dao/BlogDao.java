@@ -12,4 +12,8 @@ public interface BlogDao {
     List<Blog> getIndexBlog();
 
     List<Blog> getAllRecommendBlog();
+
+    Blog getDetailBlog(Long id);
+
+    List<Blog> getSearchBlog(String query);
 }

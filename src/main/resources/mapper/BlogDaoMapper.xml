@@ -48,4 +48,21 @@
     <select id="getAllRecommendBlog" resultMap="blog">
         select id, title, recommend from t_blog order by update_time desc;
     </select>
+
+    <select id="getDetailBlog" resultMap="blog">
+        select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation,
+        u.nickname, u.avatar,
+        t.id tid, t.name tagname
+        from t_blog b, t_user u, t_tag t, t_blog_tags bt
+        where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = #{id}
+    </select>
+
+    <select id="getSearchBlog" resultMap="blog">
+        <bind name="pattern" value="'%' + query + '%'"/>
+        select b.id, b.title, b.first_picture, b.views, b.update_time, b.description,
+        t.name typename, t.id typeid,
+        u.nickname, u.avatar
+        from t_blog b, t_type t, t_user u
+        where b.type_id = t.id and  u.id = b.user_id and (b.title like #{pattern} or b.content like #{pattern})
+    </select>
 </mapper>
