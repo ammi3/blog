@@ -16,4 +16,14 @@ public interface BlogDao {
     Blog getDetailBlog(Long id);
 
     List<Blog> getSearchBlog(String query);
+
+    List<Blog> getByTypeId(Long typeId);
+
+    List<Blog> getByTagId(Long tagId);
+
+    List<Blog> searchAllBlog();
+
+    List<String> findGroupYear();
+
+    List<Blog> findByYear(String year);
 }

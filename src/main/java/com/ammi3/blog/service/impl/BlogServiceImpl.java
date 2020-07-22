@@ -8,7 +8,7 @@ import com.ammi3.blog.utils.MarkdownUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class BlogServiceImpl implements BlogService {
@@ -59,5 +59,41 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<Blog> getSearchBlog(String query) {
         return blogDao.getSearchBlog(query);
+    }
+
+    /**
+     * 根据类型id查找博客
+     * @param typeId
+     * @return
+     */
+    @Override
+    public List<Blog> getByTypeId(Long typeId) {
+        return blogDao.getByTypeId(typeId);
+    }
+
+    /**
+     * 根据标签id查找博客
+     * @param tagId
+     * @return
+     */
+    @Override
+    public List<Blog> getByTagId(Long tagId) {
+        return blogDao.getByTagId(tagId);
+    }
+
+    @Override
+    public Map<String, List<Blog>> archiveBlog() {
+        List<String> years = blogDao.findGroupYear();
+        Set<String> set = new HashSet<>(years);
+        Map<String, List<Blog>> map = new HashMap<>();
+        for(String year : years) {
+            map.put(year, blogDao.findByYear(year));
+        }
+        return map;
+    }
+
+    @Override
+    public int countBlog() {
+        return blogDao.searchAllBlog().size();
     }
 }

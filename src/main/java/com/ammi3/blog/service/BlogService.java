@@ -4,6 +4,7 @@ package com.ammi3.blog.service;
 import com.ammi3.blog.domain.Blog;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BlogService {
 
@@ -14,4 +15,12 @@ public interface BlogService {
     Blog getDetailBlog(Long id);
 
     List<Blog> getSearchBlog(String query);
+
+    List<Blog> getByTypeId(Long typeId);
+
+    List<Blog> getByTagId(Long tagId);
+
+    Map<String, List<Blog>> archiveBlog();
+
+    int countBlog();
 }

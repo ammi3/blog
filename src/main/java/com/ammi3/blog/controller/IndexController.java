@@ -39,7 +39,7 @@ public class IndexController {
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(@RequestParam(required = false, defaultValue = "1", value = "pageNum")int pageNum, Model model) {
-        PageHelper.startPage(pageNum, 5);
+        PageHelper.startPage(pageNum, 4);
         List<Blog> allBlog = blogService.getIndexBlog();
         List<Type> allType = typeService.getBlogType();
         List<Tag> allTag = tagService.getBlogTag();

@@ -46,7 +46,8 @@
     </select>
 
     <select id="getAllRecommendBlog" resultMap="blog">
-        select id, title, recommend from t_blog order by update_time desc;
+        select id, title, recommend from t_blog order by update_time desc
+        limit 5
     </select>
 
     <select id="getDetailBlog" resultMap="blog">
@@ -64,5 +65,58 @@
         u.nickname, u.avatar
         from t_blog b, t_type t, t_user u
         where b.type_id = t.id and  u.id = b.user_id and (b.title like #{pattern} or b.content like #{pattern})
+    </select>
+
+    <select id="getByTypeId" resultMap="blog">
+        select b.id, b.title, b.user_id, b.first_picture, b.views, b.update_time, b.description,
+        t.name typename, t.id tid,
+        u.nickname, u.avatar
+        from t_blog b, t_type t, t_user u
+        where b.type_id = t.id and u.id = b.user_id and b.type_id = #{typeId}
+        order by b.update_time desc
+    </select>
+
+    <select id="getByTagId" resultMap="blog">
+        select b.id, b.title, b.first_picture, b.views, b.update_time, b.description,
+        t.name typename, t.id typeid,
+        t1.name tagname, t1.id tagid,
+        u.nickname, u.avatar
+        from t_blog b, t_blog_tags bt, t_user u, t_type t, t_tag t1
+        where b.type_id = t.id and u.id = b.user_id and bt.blog_id = b.id and bt.tag_id = t1.id and t1.id = #{tagId}
+        order by b.update_time desc
+    </select>
+
+    <select id="findGroupYear" resultType="String">
+        select DATE_FORMAT(b.update_time, '%Y')
+        from t_blog b
+        order by b.update_time desc
+    </select>
+
+    <select id="findByYear" resultMap="blog">
+        select b.title, b.update_time, b.id, b.flag
+        from t_blog b
+        where DATE_FORMAT(b.update_time, '%Y') = #{year}
+    </select>
+
+    <select id="searchAllBlog" parameterType="Blog" resultMap="blog">
+        <if test="title != null">
+            <bind name="pattern" value="'%' + title + '%'"/>
+        </if>
+        select b.id, b.title, b.recommend, b.update_time, b.published, b.type_id, t.id, t.name
+        from t_blog b, t_type t
+        <where>
+            <if test="1 == 1">
+                b.type_id = t.id
+            </if>
+            <if test="typeId != null and typeId != ''">
+                and b.type_id = #{typeId}
+            </if>
+            <if test="recommend != null and recommend != ''">
+                and b.recommend = #{recommend}
+            </if>
+            <if test="title != null and title != ''">
+                and b.title like #{pattern}
+            </if>
+        </where>
     </select>
 </mapper>
