@@ -2202,3 +2202,65 @@ java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check th
 2020-07-22 15:33:30.245 DEBUG 15804 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc limit 5 
 2020-07-22 15:33:30.245 DEBUG 15804 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
 2020-07-22 15:33:30.330 DEBUG 15804 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 5
+2020-07-22 15:38:22.735  INFO 2952 --- [restartedMain] com.ammi3.blog.BlogApplication           : Starting BlogApplication on DESKTOP-406V8OL with PID 2952 (H:\blog\target\classes started by 75821 in H:\blog)
+2020-07-22 15:38:22.737 DEBUG 2952 --- [restartedMain] com.ammi3.blog.BlogApplication           : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2020-07-22 15:38:22.737  INFO 2952 --- [restartedMain] com.ammi3.blog.BlogApplication           : The following profiles are active: dev
+2020-07-22 15:38:22.788  INFO 2952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-07-22 15:38:22.788  INFO 2952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-07-22 15:38:23.658  INFO 2952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-22 15:38:23.665  INFO 2952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-22 15:38:23.665  INFO 2952 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2020-07-22 15:38:23.735  INFO 2952 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-22 15:38:23.736  INFO 2952 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 948 ms
+2020-07-22 15:38:24.091  INFO 2952 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-22 15:38:24.133  INFO 2952 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-07-22 15:38:24.328  INFO 2952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-07-22 15:38:24.356  INFO 2952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-22 15:38:24.365  INFO 2952 --- [restartedMain] com.ammi3.blog.BlogApplication           : Started BlogApplication in 2.039 seconds (JVM running for 2.891)
+2020-07-22 15:38:31.344  INFO 2952 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-07-22 15:38:31.344  INFO 2952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-07-22 15:38:31.349  INFO 2952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-07-22 15:38:31.402  INFO 2952 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-07-22 15:38:32.912  INFO 2952 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-07-22 15:38:32.918 DEBUG 2952 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id 
+2020-07-22 15:38:32.935 DEBUG 2952 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : ==> Parameters: 
+2020-07-22 15:38:33.043 DEBUG 2952 --- [http-nio-8080-exec-1] c.a.blog.dao.BlogDao.getIndexBlog_COUNT  : <==      Total: 1
+2020-07-22 15:38:33.046 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id order by b.update_time desc LIMIT ? 
+2020-07-22 15:38:33.046 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : ==> Parameters: 4(Integer)
+2020-07-22 15:38:33.147 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.BlogDao.getIndexBlog  : <==      Total: 4
+2020-07-22 15:38:33.150 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id 
+2020-07-22 15:38:33.150 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 
+2020-07-22 15:38:33.231 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-22 15:38:33.232 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id 
+2020-07-22 15:38:33.232 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 
+2020-07-22 15:38:33.304 DEBUG 2952 --- [http-nio-8080-exec-1] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-22 15:38:33.305 DEBUG 2952 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==>  Preparing: select id, title, recommend from t_blog order by update_time desc limit 5 
+2020-07-22 15:38:33.305 DEBUG 2952 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : ==> Parameters: 
+2020-07-22 15:38:33.414 DEBUG 2952 --- [http-nio-8080-exec-1] c.a.b.dao.BlogDao.getAllRecommendBlog    : <==      Total: 5
+2020-07-22 15:38:36.108 DEBUG 2952 --- [http-nio-8080-exec-6] c.a.blog.dao.TypeDao.getBlogType_COUNT   : ==>  Preparing: SELECT count(0) FROM t_type t, t_blog b WHERE t.id = b.type_id 
+2020-07-22 15:38:36.108 DEBUG 2952 --- [http-nio-8080-exec-6] c.a.blog.dao.TypeDao.getBlogType_COUNT   : ==> Parameters: 
+2020-07-22 15:38:36.180 DEBUG 2952 --- [http-nio-8080-exec-6] c.a.blog.dao.TypeDao.getBlogType_COUNT   : <==      Total: 1
+2020-07-22 15:38:36.180 DEBUG 2952 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id LIMIT ? 
+2020-07-22 15:38:36.181 DEBUG 2952 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : ==> Parameters: 20(Integer)
+2020-07-22 15:38:36.259 DEBUG 2952 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.TypeDao.getBlogType   : <==      Total: 8
+2020-07-22 15:38:36.261 DEBUG 2952 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getByTypeId   : ==>  Preparing: select b.id, b.title, b.user_id, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id tid, u.nickname, u.avatar from t_blog b, t_type t, t_user u where b.type_id = t.id and u.id = b.user_id and b.type_id = ? order by b.update_time desc 
+2020-07-22 15:38:36.261 DEBUG 2952 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getByTypeId   : ==> Parameters: 3(Long)
+2020-07-22 15:38:36.351 DEBUG 2952 --- [http-nio-8080-exec-6] com.ammi3.blog.dao.BlogDao.getByTypeId   : <==      Total: 2
+2020-07-22 15:38:38.269 DEBUG 2952 --- [http-nio-8080-exec-4] c.a.blog.dao.TagDao.getBlogTag_COUNT     : ==>  Preparing: SELECT count(0) FROM t_blog b, t_blog_tags bt, t_tag t WHERE b.id = bt.blog_id AND bt.tag_id = t.id 
+2020-07-22 15:38:38.269 DEBUG 2952 --- [http-nio-8080-exec-4] c.a.blog.dao.TagDao.getBlogTag_COUNT     : ==> Parameters: 
+2020-07-22 15:38:38.332 DEBUG 2952 --- [http-nio-8080-exec-4] c.a.blog.dao.TagDao.getBlogTag_COUNT     : <==      Total: 1
+2020-07-22 15:38:38.333 DEBUG 2952 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TagDao.getBlogTag     : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_blog_tags bt, t_tag t where b.id = bt.blog_id and bt.tag_id = t.id LIMIT ? 
+2020-07-22 15:38:38.333 DEBUG 2952 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TagDao.getBlogTag     : ==> Parameters: 20(Integer)
+2020-07-22 15:38:38.422 DEBUG 2952 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.TagDao.getBlogTag     : <==      Total: 12
+2020-07-22 15:38:38.424 DEBUG 2952 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.BlogDao.getByTagId    : ==>  Preparing: select b.id, b.title, b.first_picture, b.views, b.update_time, b.description, t.name typename, t.id typeid, t1.name tagname, t1.id tagid, u.nickname, u.avatar from t_blog b, t_blog_tags bt, t_user u, t_type t, t_tag t1 where b.type_id = t.id and u.id = b.user_id and bt.blog_id = b.id and bt.tag_id = t1.id and t1.id = ? order by b.update_time desc 
+2020-07-22 15:38:38.424 DEBUG 2952 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.BlogDao.getByTagId    : ==> Parameters: 3(Long)
+2020-07-22 15:38:38.508 DEBUG 2952 --- [http-nio-8080-exec-4] com.ammi3.blog.dao.BlogDao.getByTagId    : <==      Total: 1
+2020-07-22 15:38:40.549 DEBUG 2952 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-22 15:38:40.550 DEBUG 2952 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 4(Long)
+2020-07-22 15:38:40.623 DEBUG 2952 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 2
+2020-07-22 15:38:41.368 DEBUG 2952 --- [http-nio-8080-exec-2] c.a.b.dao.CommentDao.getCommentByBlog    : ==>  Preparing: select c.id cid, c.nickname, c.email, c.avatar, c.content, c.create_time, c.blog_id, c.parent_comment_id from t_blog b, t_comment c where c.blog_id = b.id and b.id = ? and c.parent_comment_id = ? order by c.create_time desc 
+2020-07-22 15:38:41.368 DEBUG 2952 --- [http-nio-8080-exec-2] c.a.b.dao.CommentDao.getCommentByBlog    : ==> Parameters: 4(Long), -1(Long)
+2020-07-22 15:38:41.458 DEBUG 2952 --- [http-nio-8080-exec-2] c.a.b.dao.CommentDao.getCommentByBlog    : <==      Total: 3
+2020-07-22 15:38:41.460 DEBUG 2952 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==>  Preparing: select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, u.nickname, u.avatar, t.id tid, t.name tagname from t_blog b, t_user u, t_tag t, t_blog_tags bt where b.user_id = u.id and bt.blog_id = b.id and bt.tag_id = t.id and b.id = ? 
+2020-07-22 15:38:41.460 DEBUG 2952 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : ==> Parameters: 4(Long)
+2020-07-22 15:38:41.533 DEBUG 2952 --- [http-nio-8080-exec-2] c.ammi3.blog.dao.BlogDao.getDetailBlog   : <==      Total: 2
