@@ -21,3 +21,4 @@ logging:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.ammi3.blog.domain
+

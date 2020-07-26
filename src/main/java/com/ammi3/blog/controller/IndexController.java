@@ -12,10 +12,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +36,7 @@ public class IndexController {
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(@RequestParam(required = false, defaultValue = "1", value = "pageNum")int pageNum, Model model) {
+        System.out.println("---------------------------");
         PageHelper.startPage(pageNum, 4);
         List<Blog> allBlog = blogService.getIndexBlog();
         List<Type> allType = typeService.getBlogType();
@@ -50,6 +48,7 @@ public class IndexController {
         model.addAttribute("tags", allTag);
         model.addAttribute("types", allType);
         model.addAttribute("recommendBlogs", recommendBlog);
+        System.out.println("+++++++++++++++++++++++++++++++");
         return "index";
     }
 

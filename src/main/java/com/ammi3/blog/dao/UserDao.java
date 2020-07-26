@@ -1,9 +1,10 @@
 package com.ammi3.blog.dao;
 
 import com.ammi3.blog.domain.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
+@Mapper
 @Repository
 public interface UserDao {
 

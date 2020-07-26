@@ -1,10 +1,11 @@
 package com.ammi3.blog.dao;
 
 import com.ammi3.blog.domain.Type;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Mapper
 @Repository
 public interface TypeDao {
 

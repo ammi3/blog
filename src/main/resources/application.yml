@@ -2,8 +2,13 @@ spring:
   thymeleaf:
     cache: false
     mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    enabled: true
+    encoding: UTF-8
   profiles:
     active: dev
 
 comment.avatar: /images/avatar.jpg
+
 
