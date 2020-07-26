@@ -23,4 +23,16 @@ public interface BlogService {
     Map<String, List<Blog>> archiveBlog();
 
     int countBlog();
+
+    List<Blog> getAllBlog();
+
+    List<Blog> searchBlogs(Blog blog);
+
+    Blog getBlog(Long id);
+
+    int deleteBlog(Long id);
+
+    int saveBlog(Blog blog);
+
+    int updateBlog(Blog blog);
 }

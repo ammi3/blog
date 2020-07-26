@@ -9,4 +9,12 @@ import java.util.List;
 public interface TagDao {
 
     List<Tag> getBlogTag();
+
+    List<Tag> getAllTag();
+
+    Tag getTag(Long id);
+
+    int deleteTag(Long id);
+
+    Tag getTagByName(String name);
 }

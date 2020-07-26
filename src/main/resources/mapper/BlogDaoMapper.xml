@@ -51,7 +51,7 @@
     </select>
 
     <select id="getDetailBlog" resultMap="blog">
-        select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation,
+        select b.id, b.title, b.first_picture, b.content, b.views, b.update_time, b.commentabled, b.share_statement, b.appreciation, b.flag,
         u.nickname, u.avatar,
         t.id tid, t.name tagname
         from t_blog b, t_user u, t_tag t, t_blog_tags bt
@@ -119,4 +119,101 @@
             </if>
         </where>
     </select>
+
+    <select id="getAllBlog" resultMap="blog">
+        select b.id, b.title, b.update_time, b.recommend, b.type_id, b.published,
+        t.id tid, t.name typename
+        from t_blog b, t_type t
+        where b.type_id = t.id
+    </select>
+
+    <select id="searchBlogs" parameterType="Blog" resultMap="blog">
+        <if test="title != null">
+            <bind name="pattern" value="'%' + title + '%'"/>
+        </if>
+        select b.id, b.title, b.update_time, b.recommend, b.published, b.type_id,
+        t.id tid, t.name typename
+        from t_blog b, t_type t
+        <where>
+            <if test="1 == 1">
+                b.type_id = t.id
+            </if>
+            <if test="typeId != null and typeId != ''">
+                and b.type_id = #{typeId}
+            </if>
+            <if test="recommend != null and recommend != ''">
+                and b.recommend = #{recommend}
+            </if>
+            <if test="title != null and title != ''">
+                and b.title like #{pattern}
+            </if>
+        </where>
+    </select>
+
+    <select id="getBlog" resultMap="blog">
+        select b.id, b.published, b.flag, b.title, b.content, b.type_id,
+        b.tag_ids, b.first_picture, b.description, b.recommend, b.share_statement,
+        b.appreciation, b.commentabled
+        from t_blog b
+        where b.id = #{id}
+    </select>
+
+    <insert id="saveBlog" parameterType="Blog" useGeneratedKeys="true" keyProperty="id">
+        insert into t_blog (
+        title,
+        content,
+        first_picture,
+        flag,
+        views,
+        appreciation,
+        share_statement,
+        commentabled,
+        published,
+        recommend,
+        create_time,
+        update_time,
+        type_id,
+        user_id,
+        description,
+        tag_ids
+        ) values (
+        #{title},
+        #{content},
+        #{firstPicture},
+        #{flag},
+        #{views},
+        #{appreciation},
+        #{shareStatement},
+        #{commentabled},
+        #{published},
+        #{recommend},
+        #{createTime},
+        #{updateTime},
+        #{typeId},
+        #{userId},
+        #{description},
+        #{tagIds}
+        )
+    </insert>
+
+    <insert id="saveBlogAndTag" parameterType="BlogAndTag">
+        insert into t_blog_tags (
+        tag_id, blog_id
+        ) values (
+        #{tagId},
+        #{blogId}
+        )
+    </insert>
+
+    <update id="updateBlog" parameterType="Blog">
+        update t_blog set published = #{published},flag = #{flag} ,
+        title = #{title}, content = #{content}, type_id = #{typeId}, tag_ids = #{tagIds},
+        first_picture = #{firstPicture} , description = #{description} , recommend = #{recommend} ,
+        share_statement = #{shareStatement}, appreciation = #{appreciation},
+        commentabled = #{commentabled} ,update_time = #{updateTime} where id = #{id};
+    </update>
+
+    <delete id="deleteBlog">
+        delete from t_blog where id = #{id}
+    </delete>
 </mapper>

@@ -3,6 +3,8 @@ package com.ammi3.blog.service.impl;
 import com.ammi3.blog.NotFoundException;
 import com.ammi3.blog.dao.BlogDao;
 import com.ammi3.blog.domain.Blog;
+import com.ammi3.blog.domain.BlogAndTag;
+import com.ammi3.blog.domain.Tag;
 import com.ammi3.blog.service.BlogService;
 import com.ammi3.blog.utils.MarkdownUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,5 +97,54 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public int countBlog() {
         return blogDao.searchAllBlog().size();
+    }
+
+    @Override
+    public List<Blog> getAllBlog() {
+        return blogDao.getAllBlog();
+    }
+
+    @Override
+    public List<Blog> searchBlogs(Blog blog) {
+        return blogDao.searchBlogs(blog);
+    }
+
+    @Override
+    public Blog getBlog(Long id) {
+        return blogDao.getBlog(id);
+    }
+
+    @Override
+    public int deleteBlog(Long id) {
+        return blogDao.deleteBlog(id);
+    }
+
+    @Override
+    public int saveBlog(Blog blog) {
+       blog.setCreateTime(new Date());
+       blog.setUpdateTime(new Date());
+       blog.setViews(0);
+       blogDao.saveBlog(blog);
+       Long id = blog.getId();
+       List<Tag> tags = blog.getTags();
+       BlogAndTag blogAndTag = null;
+       for(Tag tag : tags) {
+           blogAndTag = new BlogAndTag(tag.getId(), id);
+           blogDao.saveBlogAndTag(blogAndTag);
+       }
+       return 1;
+    }
+
+    @Override
+    public int updateBlog(Blog blog) {
+        blog.setUpdateTime(new Date());
+        //将标签的数据存到t_blogs_tag表中
+        List<Tag> tags = blog.getTags();
+        BlogAndTag blogAndTag = null;
+        for (Tag tag : tags) {
+            blogAndTag = new BlogAndTag(tag.getId(), blog.getId());
+            blogDao.saveBlogAndTag(blogAndTag);
+        }
+        return blogDao.updateBlog(blog);
     }
 }
