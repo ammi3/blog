@@ -18,8 +18,8 @@
         where t.id = b.type_id
     </select>
 
-    <select id="getAllType" resultMap="type">
-        select * from t_type
+    <select id="getAllType" resultType="Type">
+        select id, name from t_type
     </select>
 
     <select id="getType" resultType="Type">

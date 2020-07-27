@@ -18,4 +18,8 @@ public interface TagDao {
     int deleteTag(Long id);
 
     Tag getTagByName(String name);
+
+    int saveTag(Tag tag);
+
+    int updateTag(Tag tag);
 }

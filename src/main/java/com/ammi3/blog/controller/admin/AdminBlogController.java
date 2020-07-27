@@ -81,8 +81,10 @@ public class AdminBlogController {
         blog.setUserId(blog.getUser().getId());
         //设置blog的type
         blog.setType(typeService.getType(blog.getType().getId()));
+        System.out.println("Type："+blog.getType());
         //设置blog中typeId属性
         blog.setTypeId(blog.getType().getId());
+        System.out.println("TypeId："+blog.getTypeId());
         //给blog中的List<Tag>赋值
         blog.setTags(tagService.getTagByString(blog.getTagIds()));
 

@@ -55,6 +55,16 @@ public class TagServiceImpl implements TagService {
         return tagDao.getTagByName(name);
     }
 
+    @Override
+    public int saveTag(Tag tag) {
+        return tagDao.saveTag(tag);
+    }
+
+    @Override
+    public int updateTag(Tag tag) {
+        return tagDao.updateTag(tag);
+    }
+
     private List<Long> convertToList(String ids) {
         List<Long> list = new ArrayList<>();
         if(!"".equals(ids) && ids != null) {

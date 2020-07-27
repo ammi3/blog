@@ -50,20 +50,21 @@ public class AdminTagController {
         }else {
             attributes.addFlashAttribute("msg", "添加成功");
         }
-        //tagService.saveTag(tag);
+        tagService.saveTag(tag);
         return "redirect:/admin/tags";   //不能直接跳转到tags页面，否则不会显示tag数据(没经过tags方法)
     }
 
     @PostMapping("/tags/{id}")
     public String editTag(@PathVariable Long id, Tag tag, RedirectAttributes attributes){  //修改
         Tag t = tagService.getTagByName(tag.getName());
+        //Tag t = tagService.getTag(id);
         if(t != null){
             attributes.addFlashAttribute("msg", "不能添加重复的标签");
             return "redirect:/admin/tags/input";
         }else {
             attributes.addFlashAttribute("msg", "修改成功");
         }
-        //tagService.updateTag(tag);
+        tagService.updateTag(tag);
         return "redirect:/admin/tags";   //不能直接跳转到tags页面，否则不会显示tag数据(没经过tags方法)
     }
 

@@ -17,4 +17,8 @@ public interface TagService {
     Tag getTag(Long id);
 
     Tag getTagByName(String name);
+
+    int saveTag(Tag tag);
+
+    int updateTag(Tag tag);
 }

@@ -26,18 +26,23 @@ public class AdminTypeController {
         //得到分页结果对象
         PageInfo<Type> pageInfo = new PageInfo<>(allType);
         model.addAttribute("pageInfo", pageInfo);
+        System.out.println(pageInfo);
+        System.out.println(pageInfo.getList());
         return "admin/types";
     }
 
     @GetMapping("/types/input")
     public String toAddType(Model model){
-        model.addAttribute("type", new Type());   //返回一个type对象给前端th:object
+        model.addAttribute("type", new Type());  //返回一个type对象给前端th:object
+        System.out.println("++++++++++++++++++++++++");
         return "admin/types-input";
     }
 
     @GetMapping("/types/{id}/input")
     public String toEditType(@PathVariable Long id, Model model){
         model.addAttribute("type", typeService.getType(id));
+        System.out.println("------------------");
+        System.out.println(typeService.getType(id));
         return "admin/types-input";
     }
 
