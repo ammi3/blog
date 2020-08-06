@@ -23,7 +23,7 @@
     <select id="getTag" resultType="Tag">
         select id, name from blog.t_tag where id = #{id};
     </select>
-    
+
     <select id="getTagByName" resultType="Tag">
         select * from t_tag where name = #{name}
     </select>
@@ -43,3 +43,4 @@
         update t_tag set name = #{name} where id = #{id}
     </update>
 </mapper>
+
